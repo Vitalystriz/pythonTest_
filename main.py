@@ -14,20 +14,24 @@ if __name__ == '__main__':
     print_hi('PyCharm')
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
-name=["A","B","C"]
-contactNumber=["A","79345657","B","7898403","C","7645453"] ## сначала имя потом номер
+name="A"
+contactNumber=["A-79345657","B-7898403","C-7645453"] ## сначала имя потом номер
 note=["A","B","w"]
-class PhoneContact ():
-    def __init__(self,name, contactNumber, note):
-        self.name=name
-        self.contactNumber=contactNumber
-        self.note=note
-    def convert_name(self,name):
-        return "".join(name)
-    def convert_contactNumber(self,contactNumber):
-        return "".join(contactNumber)
-    def convert_note(self,note):
-        return "".join(note)
 
-PhoneContact1=PhoneContact(name,contactNumber,note)
-print(PhoneContact1.convert_name(name))
+class PhoneBook ():
+    def __init__(self,name, contactNumber, note):
+        pass
+    def getContactByName(self,contactNumber,name):
+        for i in range(len(contactNumber)):
+            for j in range (len(contactNumber[i])):
+                if contactNumber[i][j]=="-":
+                    if contactNumber[i][:j]==name:
+                        print(contactNumber[i][j+1:])
+                        return contactNumber[i][j+1:]
+                    else:
+                        raise ValueError("Формат ввода'имя-00000000'")
+
+
+PhoneContact1=PhoneBook(name, contactNumber, note)
+
+print(PhoneContact1.getContactByName(contactNumber,name))
