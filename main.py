@@ -13,6 +13,7 @@ def print_hi(name):
 if __name__ == '__main__':
     print_hi('PyCharm')
 import sqlite3
+import telebot
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
 
 contactNumber=["A-79345657","B-7898403","C-7645453"] ## сначала имя потом номер
@@ -23,6 +24,7 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS contacts(
 name TEXT,
 contactNumber TEXT)
 """)
+connection.commit()
 class PhoneBook ():
     def __init__(self, contactNumber, note):
         pass
